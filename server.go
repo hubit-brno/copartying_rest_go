@@ -3,7 +3,7 @@ package main
 import (
   "github.com/go-martini/martini"
   "github.com/martini-contrib/render"
-  "github.com/martini-contrib/binding"
+  //"github.com/martini-contrib/binding"
   "./copartying_rest_go"
 )
 
@@ -16,7 +16,7 @@ func newCopartieItem(r render.Render) {
 }
 
 func GetCopartie(r render.Render){
-  p := party.Party{ID: 255, Name: "Párty", Description: "Velký popis Party"}
+  p := coparty.Coparty{ID: 255, Name: "Párty", Description: "Velký popis Party"}
   r.JSON(200, p)
 }
 
@@ -43,11 +43,11 @@ func main() {
   m.Use(render.Renderer())
 
   m.Group(apiRoute + "/coparties", func(r martini.Router) {
-    r.Get("/:id&secret_token=:admin_secret_token", GetCopartie)
-    r.Post("", NewCopartie)
+    r.Get("/:id", GetCopartie)
+    /*r.Post("", NewCopartie)
     r.Post(":coparty_id/items/:id&secret_token=:user_secret_token", newCopartieItem)
     r.Put("/:id&secret_token=:admin_secret_token", UpdateCopartie)
-    r.Delete("/:id&secret_token=:admin_secret_token", DeleteCopartie)
+    r.Delete("/:id&secret_token=:admin_secret_token", DeleteCopartie) */
   })
 
   m.Run()

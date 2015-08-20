@@ -1,7 +1,7 @@
-package party
+package coparty
 
-type Party struct {
-    ID   int
-    Name string
-    Description string
+type Coparty struct {
+    ID   int `json:"id" binding:required`
+    Name string `json:"name" binding:required`
+    Description string `json:"description"`
 }
