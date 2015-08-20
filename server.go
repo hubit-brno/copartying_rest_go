@@ -11,13 +11,14 @@ func NewCopartie(r render.Render){
   r.JSON(200, map[string]interface{}{"hello": "world"})
 }
 
-  func newCopartieItem(r render.Render) {
-    r.JSON(200, map[string]interface{}{"hello": "world"})
-  }
+func newCopartieItem(r render.Render) {
+  r.JSON(200, map[string]interface{}{"hello": "world"})
+}
 
 func GetCopartie(r render.Render, params martini.Params){
   p := coparty.Coparty{ID: 255, Name: "Párty", Description: "Velký popis Party"}
   r.JSON(200, p)
+}
 
 func UpdateCopartie(r render.Render) {
   r.JSON(200, map[string]interface{}{"hello": "world"})
