@@ -21,8 +21,9 @@ func main() {
 
 
 func GetParties(r render.Render) {
-  p := party.Party{ID: 255, Name: "Párty", Description: "Velký popis Party"}
-  r.JSON(200, p)
+  var parties [1]party.Party
+  parties[0] = party.Party{ID: 255, Name: "Párty", Description: "Velký popis Party"}
+  r.JSON(200, parties)
 }
 
 func GetParty(r render.Render) {
